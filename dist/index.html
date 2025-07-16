@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic_Alert</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-green-200">
+
+    <!-- nav starts -->
+    <nav class="w-full h-16 flex items-center bg-gradient-to-r from-green-950 via-green-700 to-green-400 justify-between px-8 shadow-md">
+        <a href="/" class="text-2xl font-bold text-white flex items-center tracking-wider space-x-1">
+            <span>🌍</span>
+            <span>CivicAlert</span>
+        </a>
+
+        <ul class="hidden md:flex text-white space-x-6 font-semibold">
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">Home</a></li>
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">About</a></li>
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">Helpline</a></li>
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">Donations</a></li>
+        </ul>
+
+        <button class="bg-white rounded-xl px-4 py-2 text-green-950 font-bold hover:bg-blue-800 hover:text-white transition-colors duration-300">
+            Engage
+        </button>
+    </nav>
+    <!-- nav ends -->
+
+    <!-- hero begins -->
+     <section class="relative bg-cover bg-center min-h-[100vh] p-10" style="background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20240724/pngtree-d-choosing-happy-smile-face-good-feedback-rating-and-positive-customer-image_16050919.jpg);">
+
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+        <div class="relative z-20 w-10/12 max-w-[1080px] bg-[#ECFDF5] flex flex-row justify-between items-center mx-auto p-12 mt-8 mb-8 rounded-lg scale-110 transition-all duration-200">
+            <!-- left -->
+            <div class="space-y-5 max-w-[500px]">
+                <h1 class="font-mullish font-bold text-[50px] leading-[1] text-green-900">
+                    <span class="hover:text-green-700 transition-all duration-200">See a Problem? Speak Up.</span> <div>
+                        <span class="hover:text-green-700 transition-all duration-200">Make Your Neighborhood Better.</span>
+                    </div>
+                </h1>
+                <div class="w-2/3 h-1 bg-pink-600 hover:bg-pink-400"></div>
+                <p class="font-mullish font-semibold text-[20px] text-gray-700">Quickly report civic & environmental issues. Join others building a cleaner, safer community.</p>
+                <!-- <button class="bg-green-600 font-bold rounded-md font-mullish px-4 py-3 hover:bg-green-700 transition-all duration-200 text-white">GET STARTED</button> -->
+            </div>
+            <!-- right -->
+            <div class="flex flex-col items-center space-y-3 text-center">
+                <img id="heroImage" 
+                    src="/src/images/captain.jpg" 
+                    alt="Civic Duty"  
+                    class="w-[500px] h-[400px] object-cover rounded-2xl shadow-lg  hover:scale-105 transition-all duration-700 ease-in-out">
+
+                <p id="heroAbout" class="max-w-xl text-lg font-semibold text-pink-950 flex flex-col transition-all duration-700 ease-in-out">
+                    Be the Change.
+                    <!-- Serving your country isn't about ranks.  
+                    <span>It's about small actions that make your city better.</span> -->
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- hero ends -->
+
+    <!--Feature 1...Forrm: reporting issue section starts -->
+    
+    <section class="w-full p-10 flex justify-center items-center bg-gradient-to-br from-amber-700 via-white to-green-700">
+        <form id="issueForm" class="bg-sky-50 shadow-2xl rounded-lg p-10 w-full max-w-xl space-y-6">
+            <h2 class="text-green-800 font-bold text-[28px]">Report an Issue</h2>
+            <div class="flex items-center space-x-2">
+                <input type="checkbox" id="anonymous" class="h-4 w-4 text-green-600">
+                <label for="anonymous">Submit this report anonymously</label>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Full Name</label>
+                <input type="text" id="nameInput" placeholder="Your Name" class="border rounded-md p-2 outline-green-600">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Email</label>
+                <input type="text" id="emailInput" placeholder="example@email.com"
+                    class="border rounded-md p-2 outline-green-600">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Phone</label>
+                <input type="text" id="contact" placeholder="9876543210"
+                    class="border rounded-md p-2 outline-green-600">
+            </div>
+
+            <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Location (Area / City)</label>
+                <input type="text" id="location" placeholder="Your Area / City"
+                    class="border rounded-md p-2 outline-green-600">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Type of Issue</label>
+                <select id="issueType" class="border rounded-md p-2 outline-green-600">
+                    <option value="pothole">Pothole</option>
+                    <option value="garbage">Garbage</option>
+                    <option value="water">Water Leakage</option>
+                    <option value="brokenLights">Broken Light</option>
+                    <option value="illegalParking">Illegal Parking</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+                <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Description</label>
+                <textarea rows="4" id="description" placeholder="Describe the issue briefly..." class="border rounded-md p-2 outline-green-600"></textarea>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label class="font-medium text-green-800">Upload Image</label>
+                <input type="file" id="uploadedImg" class="border rounded-md p-2">
+            </div>
+
+            <button type="submit" class="bg-green-700 text-white px-6 py-3 rounded-md hover:bg-green-800 transition">
+                Submit Report
+            </button>
+
+            <p class="text-xs text-gray-500 mt-2">
+                We respect your privacy. Anonymous submissions are welcome.
+            </p>
+        </form>
+        
+    </section>
+    <!-- Form ends -->
+
+    <!-- Dashboard -->
+    <section class="bg-gradient-to-r from-teal-900 via-teal-700 to-teal-500">
+        <div class="p-10">
+            <h2 class="text-[34px] text-white font-bold">Issues</h2>
+            <div id="issueList" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- dynamically filled with cards -->
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+
+<script>
+
+    // hero images
+    const images = [
+        "/src/images/captain.jpg",
+        "/src/images/burningGarbage.jpg",
+        "/src/images/illegalParking.jpg",
+        "/src/images/mosquitoBreedingSpots.jpg",
+        "/src/images/pipelineLeakage.jpg",
+        "/src/images/polluted_water.jpg",
+        "/src/images/potholes.jpg",
+        "/src/images/strayAnimals.jpg"
+    ];
+
+    const about = [
+        "Be the Change",
+        "Burning Garbage",
+        "Illegal Parking",
+        "Mosquito Breeding Spots",
+        "Pipeline Leakage",
+        "Polluted Water",
+        "Pot Holes",
+        "Stray Animals"
+    ];
+
+    let i = 0;
+    const imgElement = document.getElementById('heroImage');
+    const aboutElement = document.getElementById('heroAbout');
+
+    setInterval(() => {
+        imgElement.src = images[i];
+        aboutElement.textContent = about[i];
+        i = (i + 1) % images.length;
+    }, 4000);
+//------------------------------------------------------------------------------------------------------
+
+    //form submission
+
+    const form = document.getElementById("issueForm");
+    const anonymousCheckbox = document.getElementById("anonymous");
+    const nameInput = document.getElementById("nameInput");
+    const emailInput = document.getElementById("emailInput");
+    const contactInput = document.getElementById("contact");
+    const locationInput = document.getElementById("location");
+    const issueTypeInput = document.getElementById("issueType");
+    const descriptionInput = document.getElementById("description");
+    const imageInput = document.getElementById("uploadedImg");
+
+    // Utility: Read file as Base64 using async/await
+    function readFileAsBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        // STEP 1: Get Values
+        const isAnonymous = anonymousCheckbox.checked;
+        const name = isAnonymous ? "Anonymous" : nameInput.value.trim();
+        const contact = isAnonymous ? "N/A" : contactInput.value.trim();
+        const email = isAnonymous ? "N/A" : emailInput.value.trim();
+        const location = locationInput.value.trim();
+        const type = issueTypeInput.value;
+        const description = descriptionInput.value.trim();
+        const imageFile = imageInput.files[0];
+
+        // STEP 2: Basic Validation
+        if (!imageFile) {
+            alert("Please upload an image.");
+            return;
+        }
+        if (!location || !type || !description) {
+            alert("Please fill all required fields.");
+            return;
+        }
+
+        // STEP 3: Read image as Base64
+        let imageBase64;
+        try {
+            imageBase64 = await readFileAsBase64(imageFile);
+        } catch (error) {
+            alert("Failed to read image.");
+            return;
+        }
+
+        // STEP 4: Create issue object
+        const newIssue = {
+            id: Date.now(),
+            name,
+            contact,
+            email,
+            location,
+            type,
+            description,
+            date: new Date().toLocaleString(),
+            image: imageBase64
+        };
+
+        // STEP 5: Save to localStorage
+        const existing = JSON.parse(localStorage.getItem("issues") || "[]");
+        existing.push(newIssue);
+        localStorage.setItem("issues", JSON.stringify(existing));
+        renderIssues();
+
+        // STEP 6: Show submission confirmation
+        alert("✅ Issue submitted successfully!");
+
+        // STEP 7: Reset form
+        form.reset();
+    });
+
+    //Issue List
+    function renderIssues(){
+        const issueList = document.getElementById("issueList");
+        const issues = JSON.parse(localStorage.getItem("issues") || "[]");
+        issueList.innerHTML = ""; // Clear old entries
+
+        if (issues.length === 0) {
+            issueList.innerHTML = "<p>No issues submitted yet.</p>";
+            return;
+        }
+
+        issues.forEach((issue) => {
+
+            const card = document.createElement("div");
+            card.style.border = "1px solid #ccc";
+            card.style.padding = "10px";
+            card.style.margin = "10px 0";
+            card.style.borderRadius = "8px";
+            card.style.backgroundColor = "#f8f8f8";
+
+            card.innerHTML = `
+                <p><strong>Name:</strong> ${issue.name}</p>
+                <p><strong>Contact:</strong> ${issue.contact}</p>
+                <p><strong>Email:</strong> ${issue.email}</p>
+                <p><strong>Location:</strong> ${issue.location}</p>
+                <p><strong>Type:</strong> ${issue.type}</p>
+                <p><strong>Description:</strong> ${issue.description}</p>
+                <p><strong>Date:</strong> ${issue.date}</p>
+                <p><strong>Image:</strong><br><img src="${issue.image}" width="350" style="margin-top:5px; border-radius:5px;" /></p> 
+                <button data-id="${issue.id}" class="delete-btn bg-red-500 text-white mt-4 px-4 py-2 rounded hover:bg-red-700 transition">Delete</button>`;
+                
+
+            issueList.appendChild(card);
+        });
+    }
+    window.addEventListener("DOMContentLoaded", renderIssues);
+
+
+</script>
+
+</html>
