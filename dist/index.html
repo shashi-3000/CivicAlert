@@ -16,14 +16,14 @@
         </a>
 
         <ul class="hidden md:flex text-white space-x-6 font-semibold">
-            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">Home</a></li>
-            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">About</a></li>
-            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">Helpline</a></li>
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="/dist/index.html">Home</a></li>
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="/dist/About.html">About</a></li>
+            <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="/dist/helpline.html">Helpline</a></li>
             <li class="text-lg hover:text-yellow-400 transition-all duration-300 cursor-pointer"><a href="#">Donations</a></li>
         </ul>
 
         <button class="bg-white rounded-xl px-4 py-2 text-green-950 font-bold hover:bg-blue-800 hover:text-white transition-colors duration-300">
-            Engage
+            <a href="/dist/engage.html">Engage</a>
         </button>
     </nav>
     <!-- nav ends -->
@@ -81,7 +81,7 @@
             </div>
             <div class="flex flex-col space-y-2">
                 <label class="font-medium text-green-800">Phone</label>
-                <input type="text" id="contact" placeholder="9876543210"
+                <input type="text" id="contact" placeholder="0000000000"
                     class="border rounded-md p-2 outline-green-600">
             </div>
 
@@ -131,7 +131,47 @@
             </div>
         </div>
     </section>
+    
 
+    <!-- footer starts -->
+     
+    <footer class="bg-green-900 text-white py-8 px-4 mt-1">
+    <div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- CivicAlert Brand -->
+        <div>
+        <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">🌍 CivicAlert</h2>
+        <p class="text-sm text-gray-300">Your voice matters. Report civic issues and help build a cleaner, safer community.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+        <h3 class="text-lg font-semibold mb-2">Quick Links</h3>
+        <ul class="space-y-1 text-gray-300">
+            <li><a href="#" class="hover:text-yellow-400">Home</a></li>
+            <li><a href="#" class="hover:text-yellow-400">About</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Helpline</a></li>
+            <li><a href="#" class="hover:text-yellow-400">Donations</a></li>
+        </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+        <h3 class="text-lg font-semibold mb-2">Contact</h3>
+        <ul class="text-gray-300 text-sm space-y-1">
+            <li>Email: support@civicalert.org</li>
+            <li>Phone: +91 9876543210</li>
+            <li>Delhi, India</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-400">
+        © 2025 CivicAlert. All rights reserved.
+    </div>
+    </footer>
+
+    <!-- footer ends -->
 
 
 </body>
@@ -148,7 +188,7 @@
         "/src/images/pipelineLeakage.jpg",
         "/src/images/polluted_water.jpg",
         "/src/images/potholes.jpg",
-        "/src/images/strayAnimals.jpg"
+        "/src/images/strayAnimals.jpg",
     ];
 
     const about = [
