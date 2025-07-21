@@ -2,7 +2,10 @@ import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 import app from './app.js';
 
-dotenv.config({ path: './src/.env' });  // explicitly mention if inside src
+dotenv.config({ path: './.env' });  // explicitly mention if inside src
+
+//for debugging -> i did this
+// console.log("CLOUDINARY KEY:", process.env.CLOUDINARY_API_KEY);
 
 connectDB()
 .then(()=>{

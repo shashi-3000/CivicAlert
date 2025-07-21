@@ -225,20 +225,177 @@
     const descriptionInput = document.getElementById("description");
     const imageInput = document.getElementById("uploadedImg");
 
+    // -> this i used for localStorage
+
     // Utility: Read file as Base64 using async/await
-    function readFileAsBase64(file) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(file);
-        });
-    }
+    // function readFileAsBase64(file) {
+    //     return new Promise((resolve, reject) => {
+    //         const reader = new FileReader();
+    //         reader.onloadend = () => resolve(reader.result);
+    //         reader.onerror = reject;
+    //         reader.readAsDataURL(file);
+    //     });
+    // }
+
+    // form.addEventListener("submit", async function (e) {
+    //     e.preventDefault();
+
+    //     // STEP 1: Get Values
+    //     const isAnonymous = anonymousCheckbox.checked;
+    //     const name = isAnonymous ? "Anonymous" : nameInput.value.trim();
+    //     const contact = isAnonymous ? "N/A" : contactInput.value.trim();
+    //     const email = isAnonymous ? "N/A" : emailInput.value.trim();
+    //     const location = locationInput.value.trim();
+    //     const type = issueTypeInput.value;
+    //     const description = descriptionInput.value.trim();
+    //     const imageFile = imageInput.files[0];
+
+    //     // STEP 2: Basic Validation
+    //     if (!imageFile) {
+    //         alert("Please upload an image.");
+    //         return;
+    //     }
+    //     if (!location || !type || !description) {
+    //         alert("Please fill all required fields.");
+    //         return;
+    //     }
+
+    //     // STEP 3: Read image as Base64
+    //     let imageBase64;
+    //     try {
+    //         imageBase64 = await readFileAsBase64(imageFile);
+    //     } catch (error) {
+    //         alert("Failed to read image.");
+    //         return;
+    //     }
+
+    //     // STEP 4: Create issue object
+    //     const newIssue = {
+    //         id: Date.now(),
+    //         name,
+    //         contact,
+    //         email,
+    //         location,
+    //         type,
+    //         description,
+    //         date: new Date().toLocaleString(),
+    //         image: imageBase64
+    //     };
+
+    //     // STEP 5: Save to localStorage
+    //     const existing = JSON.parse(localStorage.getItem("issues") || "[]");
+    //     existing.push(newIssue);
+    //     localStorage.setItem("issues", JSON.stringify(existing));
+    //     renderIssues();
+
+    //     // STEP 6: Show submission confirmation
+    //     alert("✅ Issue submitted successfully!");
+
+    //     // STEP 7: Reset form
+    //     form.reset();
+    // });
+
+    //Issue List
+    // function renderIssues(){
+    //     const issueList = document.getElementById("issueList");
+    //     const issues = JSON.parse(localStorage.getItem("issues") || "[]");
+    //     issueList.innerHTML = ""; // Clear old entries
+
+    //     if (issues.length === 0) {
+    //         issueList.innerHTML = "<p>No issues submitted yet.</p>";
+    //         return;
+    //     }
+
+    //     issues.forEach((issue) => {
+
+    //         const card = document.createElement("div");
+    //         card.style.border = "1px solid #ccc";
+    //         card.style.padding = "10px";
+    //         card.style.margin = "10px 0";
+    //         card.style.borderRadius = "8px";
+    //         card.style.backgroundColor = "#f8f8f8";
+
+    //         card.innerHTML = `
+    //             <p><strong>Name:</strong> ${issue.name}</p>
+    //             <p><strong>Contact:</strong> ${issue.contact}</p>
+    //             <p><strong>Email:</strong> ${issue.email}</p>
+    //             <p><strong>Location:</strong> ${issue.location}</p>
+    //             <p><strong>Type:</strong> ${issue.type}</p>
+    //             <p><strong>Description:</strong> ${issue.description}</p>
+    //             <p><strong>Date:</strong> ${issue.date}</p>
+    //             <p><strong>Image:</strong><br><img src="${issue.image}" width="350" style="margin-top:5px; border-radius:5px;" /></p> 
+    //             <button data-id="${issue.id}" class="delete-btn bg-red-500 text-white mt-4 px-4 py-2 rounded hover:bg-red-700 transition">Delete</button>`;
+                
+
+    //         issueList.appendChild(card);
+    //     });
+    // }
+    // window.addEventListener("DOMContentLoaded", renderIssues);
+
+
+    // form.addEventListener("submit", async function (e) {
+    //     e.preventDefault();
+
+    //     // Step 1: Gather form inputs
+    //     const isAnonymous = anonymousCheckbox.checked;
+    //     const name = isAnonymous ? "Anonymous" : nameInput.value.trim();
+    //     const contact = isAnonymous ? "N/A" : contactInput.value.trim();
+    //     const email = isAnonymous ? "N/A" : emailInput.value.trim();
+    //     const location = locationInput.value.trim();
+    //     const type = issueTypeInput.value;
+    //     const description = descriptionInput.value.trim();
+    //     const imageFile = imageInput.files[0];
+
+    //     // Step 2: Basic Validation
+    //     if (!imageFile) {
+    //         alert("Please upload an image.");
+    //         return;
+    //     }
+    //     if (!location || !type || !description) {
+    //         alert("Please fill all required fields.");
+    //         return;
+    //     }
+
+    //     // Step 3: Create FormData
+    //     const formData = new FormData();
+    //     formData.append("name", name);
+    //     formData.append("contact", contact);
+    //     formData.append("email", email);
+    //     formData.append("location", location);
+    //     formData.append("type", type);
+    //     formData.append("description", description);
+    //     formData.append("image", imageFile);
+
+
+    //     // Step 4: Send to Backend
+    //     try {
+    //         const response = await fetch("http://localhost:8000/api/v1/issues/report", {
+    //             method: "POST",
+    //             body: formData,
+    //         });
+
+    //         if (!response.ok) {
+    //             const errorData = await response.json();
+    //             alert(errorData.message || "Something went wrong.");
+    //             return;
+    //         }
+
+    //         const data = await response.json();
+    //         alert(data.message || "Submitted Successfully");
+    //         form.reset();
+    //         renderIssues();
+    //     } catch (error) {
+    //         console.error(error);
+    //         alert("Something went wrong (catch block).");
+    //     }
+
+
+    // });
 
     form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        // STEP 1: Get Values
+        // Step 1: Gather form inputs
         const isAnonymous = anonymousCheckbox.checked;
         const name = isAnonymous ? "Anonymous" : nameInput.value.trim();
         const contact = isAnonymous ? "N/A" : contactInput.value.trim();
@@ -248,7 +405,7 @@
         const description = descriptionInput.value.trim();
         const imageFile = imageInput.files[0];
 
-        // STEP 2: Basic Validation
+        // Step 2: Basic Validation
         if (!imageFile) {
             alert("Please upload an image.");
             return;
@@ -258,76 +415,89 @@
             return;
         }
 
-        // STEP 3: Read image as Base64
-        let imageBase64;
+        // Step 3: Create FormData
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("contact", contact);
+        formData.append("email", email);
+        formData.append("location", location);
+        formData.append("type", type);
+        formData.append("description", description);
+        formData.append("image", imageFile);
+
+        // Step 4: Send to Backend
         try {
-            imageBase64 = await readFileAsBase64(imageFile);
+            const response = await fetch("http://localhost:8000/api/v1/issues/report", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json(); 
+            if (!response.ok) {
+                alert(data.message || "Something went wrong.");
+                return;
+            }
+
+            alert(data.message || "Submitted Successfully!");
+            form.reset();
+            renderIssues();
         } catch (error) {
-            alert("Failed to read image.");
-            return;
+            // console.error(error);
+            // alert("Something went wrong (catch block).");
+            console.error("Error details:", error);
+            alert("Error occurred: " + error.message);
         }
-
-        // STEP 4: Create issue object
-        const newIssue = {
-            id: Date.now(),
-            name,
-            contact,
-            email,
-            location,
-            type,
-            description,
-            date: new Date().toLocaleString(),
-            image: imageBase64
-        };
-
-        // STEP 5: Save to localStorage
-        const existing = JSON.parse(localStorage.getItem("issues") || "[]");
-        existing.push(newIssue);
-        localStorage.setItem("issues", JSON.stringify(existing));
-        renderIssues();
-
-        // STEP 6: Show submission confirmation
-        alert("✅ Issue submitted successfully!");
-
-        // STEP 7: Reset form
-        form.reset();
     });
 
-    //Issue List
-    function renderIssues(){
+
+    async function renderIssues(){
         const issueList = document.getElementById("issueList");
-        const issues = JSON.parse(localStorage.getItem("issues") || "[]");
-        issueList.innerHTML = ""; // Clear old entries
+        issueList.innerHTML = "";
 
-        if (issues.length === 0) {
-            issueList.innerHTML = "<p>No issues submitted yet.</p>";
-            return;
+        try {
+            const response = await fetch("http://localhost:8000/api/v1/issues");
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error("Failed response:", errorText);
+                alert("Failed to fetch issues.");
+                return;
+            }
+            const { data } = await response.json();
+            const issues = data.allIssues;
+
+            if (!issues || issues.length === 0) {
+                issueList.innerHTML = "<p>No issues submitted yet.</p>";
+                return;
+            }
+
+            issues.forEach((issue) => {
+                const card = document.createElement("div");
+                card.style.border = "1px solid #ccc";
+                card.style.padding = "10px";
+                card.style.margin = "10px 0";
+                card.style.borderRadius = "8px";
+                card.style.backgroundColor = "#f8f8f8";
+
+                card.innerHTML = `
+                    <p><strong>Name:</strong> ${issue.name}</p>
+                    <p><strong>Contact:</strong> ${issue.contact}</p>
+                    <p><strong>Email:</strong> ${issue.email}</p>
+                    <p><strong>Location:</strong> ${issue.location}</p>
+                    <p><strong>Type:</strong> ${issue.type}</p>
+                    <p><strong>Description:</strong> ${issue.description}</p>
+                    <p><strong>Date:</strong> ${new Date(issue.createdAt).toLocaleString()}</p>
+                    <p><strong>Image:</strong><br><img src="${issue.image}" width="350" style="margin-top:5px; border-radius:5px;" /></p> 
+                `;
+
+                issueList.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error(error);
+            issueList.innerHTML = "<p>Failed to load issues.</p>";
         }
-
-        issues.forEach((issue) => {
-
-            const card = document.createElement("div");
-            card.style.border = "1px solid #ccc";
-            card.style.padding = "10px";
-            card.style.margin = "10px 0";
-            card.style.borderRadius = "8px";
-            card.style.backgroundColor = "#f8f8f8";
-
-            card.innerHTML = `
-                <p><strong>Name:</strong> ${issue.name}</p>
-                <p><strong>Contact:</strong> ${issue.contact}</p>
-                <p><strong>Email:</strong> ${issue.email}</p>
-                <p><strong>Location:</strong> ${issue.location}</p>
-                <p><strong>Type:</strong> ${issue.type}</p>
-                <p><strong>Description:</strong> ${issue.description}</p>
-                <p><strong>Date:</strong> ${issue.date}</p>
-                <p><strong>Image:</strong><br><img src="${issue.image}" width="350" style="margin-top:5px; border-radius:5px;" /></p> 
-                <button data-id="${issue.id}" class="delete-btn bg-red-500 text-white mt-4 px-4 py-2 rounded hover:bg-red-700 transition">Delete</button>`;
-                
-
-            issueList.appendChild(card);
-        });
     }
+
     window.addEventListener("DOMContentLoaded", renderIssues);
 
 

@@ -11,12 +11,16 @@ const reportIssue = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Location, type, and description are required.");
     }
 
+    //added cinsole to debug 
+    console.log(req.files);
+
     const issueFile = req.files?.image;
     if (!issueFile || issueFile.length === 0) {
         throw new ApiError(400, "Image is required.");
     }
 
     const issueLocalPath = issueFile[0].path;
+    
     const issue = await uploadOnCloudinary(issueLocalPath);
     if (!issue) {
         throw new ApiError(400, "Failed to upload image.");
