@@ -41,9 +41,9 @@ const reportIssue = asyncHandler(async (req, res) => {
 const getAllIssues = asyncHandler(async (req, res) => {
     const allIssues = await Issue.find();
 
-    if (!allIssues || allIssues.length === 0) {
-        throw new ApiError(404, "No issues found.");
-    }
+    // if (!allIssues || allIssues.length === 0) {
+    //     throw new ApiError(404, "No issues found.");
+    // }
 
     return res.status(200).json(
         new ApiResponse(200, { allIssues }, "All issues fetched successfully.")
@@ -56,5 +56,5 @@ const getAllIssues = asyncHandler(async (req, res) => {
 export{
     reportIssue,
     getAllIssues,
-    
+
 }

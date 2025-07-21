@@ -17,7 +17,7 @@ router.route("/report").post(
 
 // For getting all issues
 // router.route("/issues").get(getAllIssues);
-// router.route("/").get(getAllIssues);
+router.route("/").get(getAllIssues);
 
 
 export default router;
